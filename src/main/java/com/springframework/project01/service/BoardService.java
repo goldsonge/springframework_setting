@@ -1,0 +1,16 @@
+package com.springframework.project01.service;
+
+import com.springframework.project01.dto.BoardDTO;
+import com.springframework.project01.repository.BoardRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class BoardService {
+    private final BoardRepository boardRepository;
+
+    public int save(BoardDTO boardDTO){
+        return boardRepository.save(boardDTO);
+    }
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Board">
+    <!-- 원래라면 parameterType엔 해당 파일 즉 boardDTO의 경로를 전부 적어주어야 하지만 mybatis-config 내에 typeAlias 태그로 약칭을 정해 사용할 수도 있다.-->
+    <insert id="save" parameterType="board">
+        insert into board_table(boardWriter, boardPass, boardTitle, boardContents)
+        <!--바뀌는 부분에 있어선 #{}를 써주고 DTO에 적어준 필드 이름을 적어주고 대소문자 구분 확실하게 해서 적어야함.-->
+        values(#{boardWriter}, #{boardPass}, #{boardTitle}, #{boardContents})
+    </insert>
+</mapper>
