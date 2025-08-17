@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @RequiredArgsConstructor
 public class BoardRepository {
@@ -21,5 +23,9 @@ public class BoardRepository {
           두번째 파라미터는 프론트에서 값을 전달받은 값. 프론트에서 전달받는 값이 있다면 mapper에 parameter값을 적어주어야 한다.
         */
         return sql.insert("Board.save", boardDTO);
+    }
+
+    public List<BoardDTO> findAll() {
+        return sql.selectList("Board.findAll");
     }
 }

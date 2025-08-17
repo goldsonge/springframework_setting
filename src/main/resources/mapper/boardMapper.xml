@@ -9,4 +9,8 @@
         <!--바뀌는 부분에 있어선 #{}를 써주고 DTO에 적어준 필드 이름을 적어주고 대소문자 구분 확실하게 해서 적어야함.-->
         values(#{boardWriter}, #{boardPass}, #{boardTitle}, #{boardContents})
     </insert>
+    <!--resultType은 select에 자주 사용한다.-->
+    <select id="findAll" resultType="board">
+        select * from board_table order by id desc
+    </select>
 </mapper>
