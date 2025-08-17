@@ -42,6 +42,7 @@ public class BoardController {
 
     @GetMapping
     public String findById(@RequestParam("id") Long id, Model model){
+        boardService.updateHits(id);
         BoardDTO boardDTO = boardService.findById(id);
         // 여기서 board로 보내줘서 jsp에서 board로 받아서 사용.
         model.addAttribute("board", boardDTO);

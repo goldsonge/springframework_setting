@@ -33,4 +33,8 @@ public class BoardRepository {
         // 가져오는 데이터가 여러개면 List 하지만 하나만 가져오는거라면 One을 써준다
         return sql.selectOne("Board.findById", id);
     }
+
+    public void updateHits(Long id) {
+        sql.update("Board.updateHits", id);
+    }
 }
