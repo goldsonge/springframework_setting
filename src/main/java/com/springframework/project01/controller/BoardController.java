@@ -5,10 +5,7 @@ import com.springframework.project01.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -41,5 +38,14 @@ public class BoardController {
         List<BoardDTO> boardDTOList = boardService.findAll();
         model.addAttribute("boardList", boardDTOList);
         return "list";
+    }
+
+    @GetMapping
+    public String findById(@RequestParam("id") Long id, Model model){
+        BoardDTO boardDTO = boardService.findById(id);
+        // 여기서 board로 보내줘서 jsp에서 board로 받아서 사용.
+        model.addAttribute("board", boardDTO);
+        return "detail";
+
     }
 }

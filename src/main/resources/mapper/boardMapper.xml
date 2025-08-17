@@ -13,4 +13,8 @@
     <select id="findAll" resultType="board">
         select * from board_table order by id desc
     </select>
+    <!--찾으려고 하는 변수를 where 뒤에 적어주고 해당 변수의 타입을 parameterType에 적어준다. -->
+    <select id="findById" parameterType="Long" resultType="board">
+        select * from board_table where id=#{id}
+    </select>
 </mapper>
