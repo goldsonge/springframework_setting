@@ -3,6 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="com.springframework.board.dto.BoardDTO" alias="board"></typeAlias>
+        <!--type 안에 경로 제대로 확인하고 기입..-->
+        <typeAlias type="com.springframework.project01.dto.BoardDTO" alias="board"></typeAlias>
     </typeAliases>
 </configuration>
